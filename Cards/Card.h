@@ -6,6 +6,7 @@
 #include "utilities.h"
 class Card
 {
+protected:
 private:
     std::string m_cardName;
     std::unique_ptr<Card> m_currentCardType;

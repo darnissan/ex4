@@ -4,24 +4,38 @@
 #include <stdlib.h>
 #include <fstream>
 #include <string>
+
 Mtmchkin::Mtmchkin(const std::string fileName)
 {
+    const std::vector CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
     std::ifstream file(fileName);
     if (!file.is_open())
     {
-        std::cout << "Error: File not found" << std::endl;
-        exit(1);
+        throw DeckFileNotFound("Deck File Error: File not found");
     }
-    std::string line;
-    std::getline(file, line);
-    m_numberOfRounds = atoi(line.c_str());
-    std::getline(file, line);
-    m_numberOfPlayers = atoi(line.c_str());
-    m_players = new Player *[m_numberOfPlayers];
-    for (int i = 0; i < m_numberOfPlayers; i++)
+    int lineNumber = 0;
+    while (!file.eof())
     {
+        std::string line;
         std::getline(file, line);
-        m_players[i] = new Player(line);
+
+        if (!isStringInVector(CardTypes, line))
+        {
+            throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
+        }
+        m_decOfCards
+            lineNumber++;
     }
-    file.close();
+}
+
+bool isStringInVector(const std::vector<const char *> &vector, const std::string &string)
+{
+    for (int i = 0; i < vector.size(); i++)
+    {
+        if (vector[i] == string)
+        {
+            return true;
+        }
+    }
+    return false;
 }
