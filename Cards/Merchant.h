@@ -10,8 +10,8 @@ private:
     std::string m_cardName;
 
 public:
-    virtual ~Card(){};
+     ~Merchant{};
     virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
-#endif /* CARD_H_ */
+#endif /* MERCHANT_H_ */

@@ -23,4 +23,4 @@ public:
     virtual void payCoins(unsigned int coins);
 };
 
-#endif /* CARD_H_ */
+#endif
