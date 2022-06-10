@@ -12,9 +12,36 @@ private:
     std::unique_ptr<Card> m_currentCardType;
 
 public:
-    virtual ~Card(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
-    virtual void print(std::ostream &os) const = 0;
-};
-
+    enum class CardType
+    {
+        Barfight,
+        Dragon,
+        Fairy,
+        Goblin,
+        Pitfall,
+        Treasure,
+        Vampire
+    };
+    Card(CardType cardType)
+    {
+        switch (cardType)
+        {
+        case CardType::Barfight:
+            m_currentCardType = std::make_unique<Barfight>();
+            break;
+        case CardType::Dragon:
+            m_currentCardType = std::make_unique<Dragon>();
+            break;
+            {
+                m_cardName = cardName;
+                switch ()
+                {
+                }
+            }
+            virtual ~Card(){};
+            virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
+            virtual void print(std::ostream & os) const = 0;
+        }
+    }
+}
 #endif /* CARD_H_ */

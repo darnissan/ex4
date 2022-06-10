@@ -11,7 +11,7 @@ class Mtmchkin
 private:
     int m_numberOfRounds;
     int m_numberOfPlayers;
-    std::vector<Card> *m_decOfCards;
+    std::vector<Card> *m_deckOfCards;
     std::vector<Player> *m_players;
     std::vector<Player> *m_leadBoard;
 
