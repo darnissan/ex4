@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
-#include "utilities.h"
+#include "../utilities.h"
 class Treasure : public Card
 {
 private:
