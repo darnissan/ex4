@@ -15,7 +15,6 @@ public:
         m_cardName = "Goblin";
     };
     ~Goblin(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
 #endif /* GOBLIN_H_ */

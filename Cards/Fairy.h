@@ -15,7 +15,6 @@ public:
         m_cardName = "Fairy";
     };
     ~Fairy(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
 #endif /* FAIRY_H_ */

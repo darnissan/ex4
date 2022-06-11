@@ -15,7 +15,6 @@ public:
         m_cardName = "Merchant";
     };
     ~Merchant(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
 #endif /* MERCHANT_H_ */

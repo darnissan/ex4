@@ -15,7 +15,6 @@ public:
         m_cardName = "Pitfall";
     };
     ~Pitfall(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
 #endif /* PITFALL_H_ */

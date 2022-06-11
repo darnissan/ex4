@@ -20,7 +20,6 @@ public:
         m_cardName = "Barfight";
     };
     ~Barfight(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
 #endif /* BARFIGHT_H_ */
