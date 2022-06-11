@@ -1,4 +1,5 @@
 #include "Mtmchkin.h"
+#include "utilities.h"
 #include "Cards/Card.h"
 #include "Cards/Barfight.h"
 #include "Cards/Dragon.h"
