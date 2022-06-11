@@ -6,6 +6,13 @@
 #include "../utilities.h"
 class Merchant : public Card
 {
+protected:
+    virtual void print(std::ostream &os) const override
+    {
+        printCardDetails(os, m_cardName);
+        printEndOfCardDetails(os);
+    }
+
 private:
     std::string m_cardName;
 
