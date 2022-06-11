@@ -1,6 +1,6 @@
 #ifndef VAMPIRE_H_
 #define VAMPIRE_H_
-#include <BattleCard.h>
+#include "BattleCard.h"
 #include <stdlib.h>
 #include <string>
 #include <iostream>

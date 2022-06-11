@@ -19,6 +19,7 @@ private:
     std::vector<std::unique_ptr<Player>> *m_leadBoard;
     bool isStringInVector(const std::vector<const char *> &vector, const std::string &string);
     std::unique_ptr<Card> StringToUniquePtr(const std::string &string);
+    void ReadingCardsFromFile(const std::string fileName);
 
 public:
     /*

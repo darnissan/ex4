@@ -1,6 +1,6 @@
 #ifndef DRAGON_H_
 #define DRAGON_H_
-#include <BattleCard.h>
+#include "BattleCard.h"
 #include <stdlib.h>
 #include <string>
 #include <iostream>
@@ -24,7 +24,6 @@ public:
         m_cardName = "Dragon";
     };
     ~Dragon(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
 
 #endif /* DRAGON_H_ */

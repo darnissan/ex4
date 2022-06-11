@@ -1,6 +1,6 @@
 #ifndef GOBLIN_H_
 #define GOBLIN_H_
-#include <BattleCard.h>
+#include "BattleCard.h"
 #include <stdlib.h>
 #include <string>
 #include <iostream>

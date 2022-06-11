@@ -21,34 +21,11 @@
 Mtmchkin::Mtmchkin(const std::string fileName)
 {
 
-    printStartGameMessage;
+    printStartGameMessage();
     // std::map<char *, std::unique_ptr<Card>> mapStringToCard = {"Barfight ", std::unique_ptr<Barfight>{new Barfight()}};
 
     // CardType *currentCardType;
-    const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
-    std::ifstream file(fileName);
-    if (!file.is_open())
-    {
-        throw DeckFileNotFound("Deck File Error: File not found");
-    }
-    int lineNumber = 0;
-    while (!file.eof())
-    {
-        std::string line;
-        std::getline(file, line);
-
-        if (!isStringInVector(CardTypes, line))
-        {
-            throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
-        }
-        // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
-        m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtr(line));
-        lineNumber++;
-    }
-    if (m_deckOfCards->size() < 5)
-    {
-        throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
-    }
+    ReadingCardsFromFile(fileName);
 }
 
 bool isStringInVector(const std::vector<const char *> &vector, const std::string &string)
@@ -82,4 +59,32 @@ std::unique_ptr<Card> StringToUniquePtr(const std::string &string)
         return std::unique_ptr<Card>{new Vampire()};
     else
         return nullptr;
+}
+
+void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
+{
+    const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
+    std::ifstream file(fileName);
+    if (!file.is_open())
+    {
+        throw DeckFileNotFound("Deck File Error: File not found");
+    }
+    int lineNumber = 1;
+    while (!file.eof())
+    {
+        std::string line;
+        std::getline(file, line);
+
+        if (!isStringInVector(CardTypes, line))
+        {
+            throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
+        }
+        // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
+        m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtr(line));
+        lineNumber++;
+    }
+    if (m_deckOfCards->size() < 5)
+    {
+        throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
+    }
 }
