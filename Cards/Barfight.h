@@ -8,8 +8,9 @@ class Barfight : public Card
 {
 private:
 public:
-    Barfight(){
-
+    Barfight()
+    {
+        m_cardName = "Barfight";
     };
     ~Barfight(){};
     virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);

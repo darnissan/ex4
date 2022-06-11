@@ -10,6 +10,10 @@ private:
     std::string m_cardName;
 
 public:
+    Treasure()
+    {
+        m_cardName = "Treasure";
+    };
     ~Treasure(){};
     virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };
