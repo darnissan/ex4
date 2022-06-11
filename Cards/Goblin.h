@@ -1,10 +1,11 @@
 #ifndef GOBLIN_H_
 #define GOBLIN_H_
+#include <BattleCard.h>
 #include <stdlib.h>
 #include <string>
 #include <iostream>
 #include "../utilities.h"
-class Goblin : public Card
+class Goblin : public BattleCard
 {
 private:
     std::string m_cardName;
