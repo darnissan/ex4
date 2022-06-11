@@ -41,7 +41,7 @@ bool isStringInVector(const std::vector<const char *> &vector, const std::string
     return false;
 }
 
-std::unique_ptr<Card> StringToUniquePtr(const std::string &string)
+std::unique_ptr<Card> StringToUniquePtrCard(const std::string &string)
 {
     if (string == "Barfight")
         return std::unique_ptr<Card>{new Barfight()};
@@ -80,11 +80,95 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
             throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
         }
         // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
-        m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtr(line));
+        m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
         lineNumber++;
     }
     if (m_deckOfCards->size() < 5)
     {
         throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
     }
+}
+void Mtmchkin::ReadingPlayersFromUser()
+{
+    std::string userInput;
+    printEnterTeamSizeMessage();
+    bool validTeamSize = false;
+    while (validTeamSize == false)
+    {
+        std::cin >> userInput;
+        try
+        {
+            m_numberOfPlayers = std::stoi(userInput);
+        }
+        catch (std::invalid_argument const &ex)
+        {
+            printInvalidInput();
+        }
+
+        if (m_numberOfPlayers < 2 || m_numberOfPlayers > 6)
+        {
+            printInvalidTeamSize();
+        }
+        else
+        {
+            validTeamSize = true;
+        }
+    }
+    bool validPlayerName = false, validClassName = false;
+    std::string userClassInput;
+    for (int i = 0; i < m_numberOfPlayers; i++)
+    {
+        printInsertPlayerMessage();
+        std::cin >> userInput;
+        std::cin >> userClassInput;
+        while (validPlayerName == false || validClassName == false)
+        {
+            if (isValidString(userInput) == false)
+            {
+                printInvalidName();
+                std::cin >> userInput;
+                std::cin >> userClassInput;
+            }
+            else if (isValidString(userClassInput) == false)
+            {
+                printInvalidClass();
+                std::cin >> userInput;
+                std::cin >> userClassInput;
+            }
+            else
+            {
+                validPlayerName = true;
+                validClassName = true;
+            }
+        }
+        m_players->insert(m_players->end(), StringToUniquePtrPlayer(userInput, userClassInput));
+    }
+}
+
+std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string &name, const std::string &m_class)
+{
+    if (m_class == "Fighter")
+        return std::unique_ptr<Player>{new Fighter()};
+    else if (m_class == "Wizard")
+        return std::unique_ptr<Player>{new Wizard()};
+    else if (m_class == "Rouge")
+        return std::unique_ptr<Player>{new Rouge()};
+    else
+        return nullptr;
+}
+
+bool isValidString(const std::string &string)
+{
+    if (string.length() > 15)
+    {
+        return false;
+    }
+    for (int i = 0; i < (int)string.length(); i++)
+    {
+        if (!isalpha(string[i]))
+        {
+            return false;
+        }
+    }
+    return true;
 }

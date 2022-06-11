@@ -19,34 +19,24 @@ private:
     // std::unique_ptr<Card> m_currentCardType;
 
 public:
-    enum class CardType
-    {
-        Barfight,
-        Dragon,
-        Fairy,
-        Goblin,
-        Pitfall,
-        Treasure,
-        Vampire
-    };
     /*
-    Card(CardType cardType)
+Card(CardType cardType)
+{
+    switch (cardType)
     {
-        switch (cardType)
+    case CardType::Barfight1:
+        return Barfight();
+        break;
+    case CardType::Dragon:
+        return Dragon();
+        break;
         {
-        case CardType::Barfight1:
-            return Barfight();
-            break;
-        case CardType::Dragon:
-            return Dragon();
-            break;
+            m_cardName = cardName;
+            switch ()
             {
-                m_cardName = cardName;
-                switch ()
-                {
-                }
             }
-            */
+        }
+        */
     Card();
     virtual ~Card(){};
 
