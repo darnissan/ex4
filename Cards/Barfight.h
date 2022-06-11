@@ -7,9 +7,10 @@
 class Barfight : public Card
 {
 private:
-    std::string m_cardName;
-
 public:
+    Barfight(){
+
+    };
     ~Barfight(){};
     virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
 };

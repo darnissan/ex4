@@ -7,9 +7,10 @@
 class Card
 {
 protected:
-private:
     std::string m_cardName;
-    std::unique_ptr<Card> m_currentCardType;
+
+private:
+    // std::unique_ptr<Card> m_currentCardType;
 
 public:
     enum class CardType
@@ -22,11 +23,12 @@ public:
         Treasure,
         Vampire
     };
+    /*
     Card(CardType cardType)
     {
         switch (cardType)
         {
-        case CardType::Barfight:
+        case CardType::Barfight1:
             return Barfight();
             break;
         case CardType::Dragon:
@@ -38,10 +40,10 @@ public:
                 {
                 }
             }
-            virtual ~Card(){};
-            virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
-            virtual void print(std::ostream & os) const = 0;
-        }
-    }
-}
+            */
+    Card();
+    virtual ~Card(){};
+    virtual friend std::ostream &operator<<(std::ostream &os, const Card &card);
+    // virtual void print(std::ostream &os) const = 0;
+};
 #endif /* CARD_H_ */
