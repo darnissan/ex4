@@ -1,10 +1,13 @@
 #ifndef MTMCHKIN_H_
 #define MTMCHKIN_H_
 #include <stdlib.h>
+#include "Cards/Card.h"
 #include <string>
 #include <iostream>
 #include "utilities.h"
 #include "Players/Player.h"
+#include <vector>
+#include <memory>
 
 class Mtmchkin
 {
@@ -12,8 +15,10 @@ private:
     int m_numberOfRounds;
     int m_numberOfPlayers;
     std::vector<std::unique_ptr<Card>> *m_deckOfCards;
-    std::vector<Player> *m_players;
-    std::vector<Player> *m_leadBoard;
+    std::vector<std::unique_ptr<Player>> *m_players;
+    std::vector<std::unique_ptr<Player>> *m_leadBoard;
+    bool isStringInVector(const std::vector<const char *> &vector, const std::string &string);
+    std::unique_ptr<Card> StringToUniquePtr(const std::string &string);
 
 public:
     /*

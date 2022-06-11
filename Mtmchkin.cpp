@@ -15,6 +15,8 @@
 #include <fstream>
 #include <string>
 #include <map>
+#include <vector>
+#include <memory>
 
 Mtmchkin::Mtmchkin(const std::string fileName)
 {
@@ -22,7 +24,7 @@ Mtmchkin::Mtmchkin(const std::string fileName)
     // std::map<char *, std::unique_ptr<Card>> mapStringToCard = {"Barfight ", std::unique_ptr<Barfight>{new Barfight()}};
 
     // CardType *currentCardType;
-    const std::vector CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
+    const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
     std::ifstream file(fileName);
     if (!file.is_open())
     {
@@ -42,11 +44,15 @@ Mtmchkin::Mtmchkin(const std::string fileName)
         m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtr(line));
         lineNumber++;
     }
+    if (m_deckOfCards->size() < 5)
+    {
+        throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
+    }
 }
 
 bool isStringInVector(const std::vector<const char *> &vector, const std::string &string)
 {
-    for (int i = 0; i < vector.size(); i++)
+    for (int i = 0; i < (int)vector.size(); i++)
     {
         if (vector[i] == string)
         {

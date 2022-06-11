@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <string>
 #include <iostream>
-#include "utilities.h"
+#include "../utilities.h"
 class Player
 
 {
@@ -17,7 +17,7 @@ protected:
 private:
 public:
     virtual ~Player(){};
-    virtual friend std::ostream &operator<<(std::ostream &os, const Player &card);
+    virtual std::ostream &operator<<(std::ostream &os, const Player &card);
     virtual void increaseHp(unsigned int hp);
     virtual void increaseCoins(unsigned int coins);
     virtual void payCoins(unsigned int coins);

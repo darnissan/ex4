@@ -31,7 +31,7 @@ private:
     std::string m_lineNumberInDeckFile;
 
 public:
-    DeckFileFormatError(const std::string &msg, string lineNumberInDeckFile) : Exception(msg)
+    DeckFileFormatError(const std::string &msg, std::string lineNumberInDeckFile) : Exception(msg)
     {
         m_lineNumberInDeckFile = lineNumberInDeckFile;
         m_errorMessage = "Deck File Error: Format error in line " + m_lineNumberInDeckFile;
