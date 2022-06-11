@@ -27,10 +27,10 @@ public:
         switch (cardType)
         {
         case CardType::Barfight:
-            m_currentCardType = std::make_unique<Barfight>();
+            return Barfight();
             break;
         case CardType::Dragon:
-            m_currentCardType = std::make_unique<Dragon>();
+            return Dragon();
             break;
             {
                 m_cardName = cardName;
