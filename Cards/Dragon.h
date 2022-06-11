@@ -6,6 +6,12 @@
 #include "../utilities.h"
 class Dragon : public Card
 {
+protected:
+    virtual void print(std::ostream &os) const override
+    {
+        printCardDetails(os, m_cardName);
+    }
+
 private:
     std::string m_cardName;
 

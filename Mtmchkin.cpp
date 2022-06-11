@@ -21,6 +21,7 @@
 Mtmchkin::Mtmchkin(const std::string fileName)
 {
 
+    printStartGameMessage;
     // std::map<char *, std::unique_ptr<Card>> mapStringToCard = {"Barfight ", std::unique_ptr<Barfight>{new Barfight()}};
 
     // CardType *currentCardType;
