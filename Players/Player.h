@@ -1,26 +1,38 @@
-#ifndef PLAYER_H_
-#define PLAYER_H_
-#include <stdlib.h>
-#include <string>
-#include <iostream>
-#include "../utilities.h"
-class Player
+#ifndef EX4_PLAYER_H
+#define EX4_PLAYER_H
 
-{
+#include "../utilities.h"
+class Player {
+
+public:
+    Player(std::string name);
+    Player();
+    void levelUp();
+    int getLevel() const;
+    void buff(int force);
+    virtual void heal(int heal);
+    void damage(int damage);
+    virtual void addCoins(int coins);
+    bool pay(int pay);
+    virtual int getAttackStrength() const;
+    bool isKnockedOut() const;
+    int getCoins() const;
+    int getHP() const;
+    Player(const Player&) = default;
+    ~Player() = default;
+    Player& operator=(const Player& other) = default;
+
+    friend std::ostream& operator<<(std::ostream& os, Player& player);
+
 protected:
-    std::string m_playerName;
-    int m_level;
-    unsigned int m_force;
-    unsigned int m_hp;
-    unsigned int m_coins;
+    virtual std::string getJob() const = 0;
 
 private:
-public:
-    virtual ~Player(){};
-    virtual std::ostream &operator<<(std::ostream &os, const Player &card);
-    virtual void increaseHp(unsigned int hp);
-    virtual void increaseCoins(unsigned int coins);
-    virtual void payCoins(unsigned int coins);
+    std::string m_name;
+    int m_level;
+    int m_force;
+    int m_HP;
+    int m_coins;
 };
 
-#endif
+#endif // EX4_PLAYER_H
