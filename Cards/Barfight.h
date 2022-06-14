@@ -10,6 +10,7 @@ protected:
 
 private:
 public:
+    void uniqeAction(std::unique_ptr<Player>& player) override;
     Barfight()
     {
         m_cardName = "Barfight";

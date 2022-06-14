@@ -24,7 +24,6 @@ private:
     void ReadingCardsFromFile(const std::string fileName);
     void ReadingPlayersFromUser();
     bool isValidString(const std::string& string);
-    void PlayRound();
 
 public:
     /*

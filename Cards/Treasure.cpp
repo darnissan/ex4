@@ -1,5 +1,6 @@
 #include "Treasure.h"
 #include "Card.h"
+const int treasure_coins = 10;
 
 void Treasure::print(std::ostream& os) const
 {
@@ -10,4 +11,10 @@ void Treasure::print(std::ostream& os) const
 Treasure::Treasure()
 {
     m_cardName = "Treasure";
+};
+
+void Treasure::uniqeAction(std::unique_ptr<Player>& player)
+{
+    int coins = treasure_coins;
+    player->addCoins(coins);
 };

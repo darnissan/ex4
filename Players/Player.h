@@ -23,10 +23,10 @@ public:
     Player& operator=(const Player& other) = default;
 
     friend std::ostream& operator<<(std::ostream& os, Player& player);
+    virtual std::string getJob() const = 0;
 
 protected:
     // I SEE YOU (▀̿Ĺ̯▀̿ ̿)
-    virtual std::string getJob() const = 0;
 
 private:
     std::string m_name;

@@ -1,6 +1,7 @@
 #ifndef TREASURE_H_
 #define TREASURE_H_
 #include "../utilities.h"
+#include "Card.h"
 #include <iostream>
 #include <stdlib.h>
 #include <string>
@@ -16,6 +17,7 @@ private:
     std::string m_cardName;
 
 public:
+    void uniqeAction(std::unique_ptr<Player>& player) override;
     Treasure();
     ~Treasure() {};
 };
