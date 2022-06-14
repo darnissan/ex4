@@ -25,6 +25,7 @@ public:
     friend std::ostream& operator<<(std::ostream& os, Player& player);
 
 protected:
+    // I SEE YOU (▀̿Ĺ̯▀̿ ̿)
     virtual std::string getJob() const = 0;
 
 private:
