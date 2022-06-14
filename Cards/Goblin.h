@@ -8,6 +8,7 @@
 class Goblin : public BattleCard {
 private:
 public:
+    void uniqueAction() override;
     Goblin()
     {
         m_cardName = "Goblin";
