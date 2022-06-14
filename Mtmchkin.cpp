@@ -134,9 +134,9 @@ std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string& name, const s
     if (m_class == "Fighter")
         return std::unique_ptr<Player> { new Fighter(name) };
     else if (m_class == "Wizard")
-        return std::unique_ptr<Player> { new Wizard() };
+        return std::unique_ptr<Player> { new Wizard(name) };
     else if (m_class == "Rouge")
-        return std::unique_ptr<Player> { new Rouge() };
+        return std::unique_ptr<Player> { new Rouge(name) };
     else
         return nullptr;
 }

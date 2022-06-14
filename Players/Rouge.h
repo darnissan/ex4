@@ -3,6 +3,7 @@
 #include "Player.h"
 
 class Rouge : public Player {
+public:
     Rouge(std::string name)
         : Player(name) {};
     ~Rouge() {};
