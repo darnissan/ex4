@@ -1,17 +1,12 @@
 #ifndef BARFIGHT_H_
 #define BARFIGHT_H_
+#include "../utilities.h"
+#include <iostream>
 #include <stdlib.h>
 #include <string>
-#include <iostream>
-#include "../utilities.h"
-class Barfight : public Card
-{
+class Barfight : public Card {
 protected:
-    virtual void print(std::ostream &os) const override
-    {
-        printCardDetails(os, m_cardName);
-        printEndOfCardDetails(os);
-    }
+    virtual void print(std::ostream& os) const override {};
 
 private:
 public:
@@ -19,7 +14,7 @@ public:
     {
         m_cardName = "Barfight";
     };
-    ~Barfight(){};
+    ~Barfight() {};
 };
 
 #endif /* BARFIGHT_H_ */
