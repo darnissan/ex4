@@ -88,6 +88,7 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 }
 void Mtmchkin::ReadingPlayersFromUser()
 {
+    const std::vector<const char*> PlayerTypes = { "Wizard", "Rouge", "Fighter" };
     std::string userInput;
     printEnterTeamSizeMessage();
     bool validTeamSize = false;
@@ -116,7 +117,7 @@ void Mtmchkin::ReadingPlayersFromUser()
                 printInvalidName();
                 std::cin >> userInput;
                 std::cin >> userClassInput;
-            } else if (isValidString(userClassInput) == false) {
+            } else if (isValidString(userClassInput) == false || isStringInVector(PlayerTypes, userClassInput) == false) {
                 printInvalidClass();
                 std::cin >> userInput;
                 std::cin >> userClassInput;
