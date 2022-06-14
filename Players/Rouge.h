@@ -3,6 +3,9 @@
 #include "Player.h"
 
 class Rouge : public Player {
+    Rouge(std::string name)
+        : Player(name) {};
+    ~Rouge() {};
     void addCoins(int coins) override;
     std::string getJob() const override;
 };
