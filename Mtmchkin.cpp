@@ -30,6 +30,13 @@ Mtmchkin::Mtmchkin(const std::string fileName)
 
     // CardType *currentCardType;
     ReadingCardsFromFile(fileName);
+    ReadingPlayersFromUser();
+    m_currentCardIndex=0;
+    m_currentPlayerIndex=0;
+    while (m_players.size()!=0)
+    {
+
+    }
 }
 
 bool isStringInVector(const std::vector<const char*>& vector, const std::string& string)
@@ -154,4 +161,22 @@ bool isValidString(const std::string& string)
         }
     }
     return true;
+}
+void playRound()
+{
+    m_numberOfRounds++;
+    printTurnStartMessage();
+    if (m_currentCardIndex>=m_deckOfCards.size())
+        {
+            m_currentCardIndex=0;
+        }
+    if (m_currentPlayerIndex>=m_deckOfCards.size())
+    {
+        m_currentPlayerIndex=0;
+    }
+    m_deckOfCards[m_currentCardIndex].uniqeAction(m_players[m_currentPlayerIndex]);
+    if (m_players[m_currentPlayerIndex].getLevel>=10)
+    {
+        m_
+    }
 }
