@@ -177,6 +177,10 @@ void playRound()
     m_deckOfCards[m_currentCardIndex].uniqeAction(m_players[m_currentPlayerIndex]);
     if (m_players[m_currentPlayerIndex].getLevel>=10)
     {
-        m_
+        m_WinningPlayers.insert(m_players[m_currentPlayerIndex]);
+    }
+    else if (m_players[m_currentPlayerIndex].getLevel<=0)
+    {
+        m_LosingPlayers.insert(m_players[m_currentPlayerIndex]);
     }
 }
