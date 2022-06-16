@@ -9,6 +9,7 @@ Dragon::Dragon()
     m_cardName = "Dragon";
     m_force = 25;
     m_coins = 1000;
+    m_damageUponLoss = INT_MAX;
 }
 void Dragon::uniqeAction(std::unique_ptr<Player>& player)
 {

@@ -12,10 +12,7 @@ Fairy::Fairy()
 {
     m_cardName = "Fairy";
 }
-Fairy()
-{
-    m_cardName = "Fairy";
-}
+
 void Fairy::uniqeAction(std::unique_ptr<Player>& Player)
 {
     if (Player->getJob() == "Wizard") {

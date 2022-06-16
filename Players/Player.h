@@ -10,6 +10,7 @@ public:
     void levelUp();
     int getLevel() const;
     void buff(int force);
+    void unbuff(int force);
     virtual void heal(int heal);
     void damage(int damage);
     virtual void addCoins(int coins);

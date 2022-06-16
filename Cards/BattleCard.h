@@ -16,8 +16,6 @@ protected:
 
 private:
 public:
-    virtual void playerWin(const Player player&);
-    virtual void playerLose(const Player player&);
     BattleCard();
     virtual ~BattleCard() {};
 };

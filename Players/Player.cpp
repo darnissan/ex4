@@ -31,6 +31,11 @@ void Player::buff(int force)
     }
 }
 
+void Player::unbuff(int force)
+{
+    m_force += force;
+}
+
 void Player::heal(int heal)
 {
     if (heal > 0) {
@@ -108,4 +113,9 @@ std::ostream& operator<<(std::ostream& os, Player& player)
 string Player::getName() const
 {
     return m_name;
+}
+
+void Player::totalyDead()
+{
+    m_HP = 0;
 }
