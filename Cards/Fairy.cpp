@@ -21,3 +21,7 @@ void Fairy::uniqeAction(std::unique_ptr<Player>& Player)
         return;
     }
 }
+Card* Fairy::clone( ) const
+{
+    return new Fairy();
+}

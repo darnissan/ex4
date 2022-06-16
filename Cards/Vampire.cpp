@@ -21,3 +21,7 @@ void Vampire::uniqeAction(std::unique_ptr<Player>& player)
         player->unbuff(-1);
     }
 }
+Card* Vampire::clone( ) const
+{
+    return new Vampire();
+}

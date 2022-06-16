@@ -19,3 +19,7 @@ void Pitfall::uniqeAction(std::unique_ptr<Player>& player)
         player->damage(hp_damage);
     }
 }
+Card* Pitfall::clone( ) const
+{
+    return new Pitfall();
+}

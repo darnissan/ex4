@@ -20,3 +20,7 @@ void Goblin::uniqeAction(std::unique_ptr<Player>& player)
         player->damage(this->m_damageUponLoss);
     }
 }
+Card* Goblin::clone( ) const
+{
+    return new Goblin();
+}

@@ -20,6 +20,7 @@ private:
     // std::unique_ptr<Card> m_currentCardType;
 
 public:
+    virtual Card* clone() const =0;
     virtual void uniqeAction(std::unique_ptr<Player>& player) = 0;
     /*
 Card(CardType cardType)

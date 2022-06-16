@@ -19,3 +19,7 @@ void Barfight::uniqeAction(std::unique_ptr<Player>& player)
         player->damage(hp_damage);
     }
 }
+Card* Barfight::clone( ) const
+{
+    return new Barfight();
+}
