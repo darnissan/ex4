@@ -133,7 +133,7 @@ void Mtmchkin::ReadingPlayersFromUser()
     }
 }
 
-std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string& name, const std::string& m_class)
+std::unique_ptr<Player> Mtmchkin::StringToUniquePtrPlayer(const std::string& name, const std::string& m_class)
 {
     if (m_class == "Fighter")
         return std::unique_ptr<Player> { new Fighter(name) };
