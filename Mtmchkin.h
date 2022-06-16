@@ -14,7 +14,7 @@ class Mtmchkin
 private:
     int m_currentCardIndex;
     int m_currentPlayerIndex;
-    int m_numberOfRounds;
+    int m_numberOfRounds=0;
     int m_numberOfPlayers;
     std::vector<std::unique_ptr<Player>> m_WinningPlayers;
     std::vector<std::unique_ptr<Player>> m_LosingPlayers;

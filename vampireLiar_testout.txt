@@ -2,11 +2,11 @@ Welcome to the world of MtmChkin!!!
 passing entring the read from file
 passing line 89
 passing line 91
-Goblin
-Goblin
-Goblin
-Goblin
-Goblin
+Vampire
+Vampire
+Vampire
+Vampire
+Vampire
 Please enter team size: (2-6)
 Please insert the player name and class: 
 Please insert the player name and class: 

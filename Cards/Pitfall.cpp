@@ -13,7 +13,7 @@ Pitfall::Pitfall()
 }
 void Pitfall::uniqeAction(std::unique_ptr<Player>& player)
 {
-    if (player->getJob() == "Rouge") {
+    if (player->getJob() == "Rogue") {
         return;
     } else {
         player->damage(hp_damage);

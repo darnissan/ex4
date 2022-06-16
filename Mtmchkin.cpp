@@ -10,7 +10,7 @@
 #include "Cards/Vampire.h"
 #include "Players/Fighter.h"
 #include "Players/Player.h"
-#include "Players/Rouge.h"
+#include "Players/Rogue.h"
 #include "Players/Wizard.h"
 #include "utilities.h"
 #include <fstream>
@@ -124,7 +124,7 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 }
 void Mtmchkin::ReadingPlayersFromUser()
 {
-    const std::vector<const char *> PlayerTypes = {"Wizard", "Rouge", "Fighter"};
+    const std::vector<const char *> PlayerTypes = {"Wizard", "Rogue", "Fighter"};
     std::string userInput;
     printEnterTeamSizeMessage();
     bool validTeamSize = false;
@@ -186,8 +186,8 @@ std::unique_ptr<Player> Mtmchkin::StringToUniquePtrPlayer(const std::string &nam
         return std::unique_ptr<Player>{new Fighter(name)};
     else if (m_class == "Wizard")
         return std::unique_ptr<Player>{new Wizard(name)};
-    else if (m_class == "Rouge")
-        return std::unique_ptr<Player>{new Rouge(name)};
+    else if (m_class == "Rogue")
+        return std::unique_ptr<Player>{new Rogue(name)};
     else
         return nullptr;
 }
@@ -228,7 +228,7 @@ void Mtmchkin::playRound()
             m_WinningPlayers.insert(m_WinningPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.end()));
             m_currentPlayerIndex--;
         }
-        else if (m_players.at(m_currentPlayerIndex)->getLevel() <= 0)
+        else if (m_players.at(m_currentPlayerIndex)->isKnockedOut())
         {
 
             m_LosingPlayers.insert(m_LosingPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.end()));
