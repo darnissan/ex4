@@ -9,23 +9,25 @@
 #include <string>
 #include <vector>
 
-class Mtmchkin {
+class Mtmchkin
+{
 private:
     int m_currentCardIndex;
     int m_currentPlayerIndex;
     int m_numberOfRounds;
     int m_numberOfPlayers;
-    std::vector<std::unique_ptr<Player>>* m_WinningPlayers;
-    std::vector<std::unique_ptr<Player>>* m_LosingPlayers;
-    std::vector<std::unique_ptr<Card>>* m_deckOfCards;
-    std::vector<std::unique_ptr<Player>>* m_players;
-    std::vector<std::unique_ptr<Player>>* m_leadBoard;
-    bool isStringInVector(const std::vector<const char*>& vector, const std::string& string);
-    std::unique_ptr<Card> StringToUniquePtrCard(const std::string& string);
-    std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string& name, const std::string& m_class);
+    std::vector<std::unique_ptr<Player>> *m_WinningPlayers;
+    std::vector<std::unique_ptr<Player>> *m_LosingPlayers;
+    std::vector<std::unique_ptr<Card>> *m_deckOfCards;
+    std::vector<std::unique_ptr<Player>> *m_players;
+    std::vector<std::unique_ptr<Player>> *m_leadBoard;
+    bool isStringInVector(const std::vector<const char *> &vector, const std::string &string);
+
+    std::unique_ptr<Card> StringToUniquePtrCard(const std::string &string);
+    std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string &name, const std::string &m_class);
     void ReadingCardsFromFile(const std::string fileName);
     void ReadingPlayersFromUser();
-    bool isValidString(const std::string& string);
+    bool isValidString(const std::string &string);
 
 public:
     /*
