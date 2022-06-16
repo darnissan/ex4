@@ -205,17 +205,17 @@ void Mtmchkin::playRound()
  {
      int currentRank=1;
     printLeaderBoardStartMessage();
-    for (std::unique_ptr<Player> player : m_WinningPlayers)
+    for ( &player : m_WinningPlayers)
     {
         printPlayerLeaderBoard(currentRank,player)
         currentRank++;   
     }
-    for (std::unique_ptr<Player> player : m_players)
+    for (&player : m_players)
     {
         printPlayerLeaderBoard(currentRank,player)
         currentRank++;   
     }
-    for (std::unique_ptr<Player> player : m_LosingPlayers)
+    for ( &player : m_LosingPlayers)
     {
         printPlayerLeaderBoard(currentRank,player);
         currentRank++;   
