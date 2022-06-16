@@ -15,7 +15,8 @@ protected:
     virtual void uniqeAction(std::unique_ptr<Player>& player) override = 0;
 
 private:
-public:tual void playerWin(const Player player&);
+public:
+    virtual void playerWin(const Player player&);
     virtual void playerLose(const Player player&);
     BattleCard();
     virtual ~BattleCard() {};
