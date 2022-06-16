@@ -173,13 +173,13 @@ void Mtmchkin::playRound()
     if (m_players[m_currentPlayerIndex].getLevel>=10)
     {
         m_cu
-        m_WinningPlayers.insert(m_WinningPlayers.end(),std::make_move_iterator(m_players.begin+m_currentPlayerIndex),std::make_move_iterator(m_players.end()));
+        m_WinningPlayers.insert(m_WinningPlayers->end(),std::make_move_iterator(m_players->begin+m_currentPlayerIndex),std::make_move_iterator(m_players->end()));
         m_currentPlayerIndex--;
     }
     else if (m_players[m_currentPlayerIndex].getLevel<=0)
         {
             
-        m_LosingPlayers.insert(m_LosingPlayers.end(),std::make_move_iterator(m_players.begin+m_currentPlayerIndex),std::make_move_iterator(m_players.end()));
+        m_LosingPlayers.insert(m_LosingPlayers->end(),std::make_move_iterator(m_players->begin+m_currentPlayerIndex),std::make_move_iterator(m_players->end()));
         m_currentPlayerIndex--;
         }
     }
