@@ -9,10 +9,7 @@ class Goblin : public BattleCard {
 private:
 public:
     void uniqeAction(std::unique_ptr<Player>& player) override;
-    Goblin()
-    {
-        m_cardName = "Goblin";
-    };
+    Goblin(){};
     ~Goblin() {};
 };
 
