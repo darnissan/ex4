@@ -167,7 +167,7 @@ void Mtmchkin::playRound()
     if (m_currentPlayerIndex >= m_players->size()) {
         m_currentPlayerIndex = 0;
     }
-    while (m_currentCardIndex<m_deckOfCards.size())
+    while (m_currentPlayerIndex<m_players.size())
     {
             m_deckOfCards[m_currentCardIndex].uniqeAction(m_players[m_currentPlayerIndex]);
     if (m_players[m_currentPlayerIndex].getLevel>=10)
@@ -186,5 +186,38 @@ void Mtmchkin::playRound()
     else
     {
         m_currentPlayerIndex++;
+    }
+ }
+ 
+ bool Mtmchkin::isGameOver()
+ {
+     if (m_players.size()<=0 || m_numberOfRounds>=100)
+     return true;
+     return false;
+ }
+
+ int Mtmchkin::getNumberOfRounds() const
+ {
+     return m_numberOfRounds;
+ }
+
+ void Mtmchkin::printLeaderBoard()
+ {
+     int currentRank=1;
+    printLeaderBoardStartMessage();
+    for (std::unique_ptr<Player> player : m_WinningPlayers)
+    {
+        printPlayerLeaderBoard(currentRank,player)
+        currentRank++;   
+    }
+    for (std::unique_ptr<Player> player : m_players)
+    {
+        printPlayerLeaderBoard(currentRank,player)
+        currentRank++;   
+    }
+    for (std::unique_ptr<Player> player : m_LosingPlayers)
+    {
+        printPlayerLeaderBoard(currentRank,player)
+        currentRank++;   
     }
  }
