@@ -85,8 +85,11 @@ std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string &string)
 void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
     // Card *currentCard;
+    std::cout << "passing entring the read from file" << std::endl;
     static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Barfight", std::shared_ptr<Card>(new Barfight())}, {"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}};
+    std::cout << "passing line 89" << std::endl;
     const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
+    std::cout << "passing line 91" << std::endl;
     std::ifstream file(fileName);
     if (!file.is_open())
     {
@@ -97,7 +100,7 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
     {
         std::string line;
         std::getline(file, line);
-
+        std::cout << line << std::endl;
         if (!isStringInVector(CardTypes, line))
         {
             throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
