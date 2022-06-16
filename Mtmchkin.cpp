@@ -62,7 +62,7 @@ std::unique_ptr<Card> StringToUniquePtrCard(const std::string& string)
         return std::unique_ptr<Card> { new Treasure() };
     else if (string == "Vampire")
         return std::unique_ptr<Card> { new Vampire() };
-    else
+    
         return nullptr;
 }
 
@@ -217,7 +217,7 @@ void Mtmchkin::playRound()
     }
     for (std::unique_ptr<Player> player : m_LosingPlayers)
     {
-        printPlayerLeaderBoard(currentRank,player)
+        printPlayerLeaderBoard(currentRank,player);
         currentRank++;   
     }
  }
