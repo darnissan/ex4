@@ -167,4 +167,24 @@ void Mtmchkin::playRound()
     if (m_currentPlayerIndex >= m_players->size()) {
         m_currentPlayerIndex = 0;
     }
-}
+    while (m_currentCardIndex<m_deckOfCards.size())
+    {
+            m_deckOfCards[m_currentCardIndex].uniqeAction(m_players[m_currentPlayerIndex]);
+    if (m_players[m_currentPlayerIndex].getLevel>=10)
+    {
+        m_cu
+        m_WinningPlayers.insert(m_WinningPlayers.end(),std::make_move_iterator(m_players.begin+m_currentPlayerIndex),std::make_move_iterator(m_players.end()));
+        m_currentPlayerIndex--;
+    }
+    else if (m_players[m_currentPlayerIndex].getLevel<=0)
+        {
+            
+        m_LosingPlayers.insert(m_LosingPlayers.end(),std::make_move_iterator(m_players.begin+m_currentPlayerIndex),std::make_move_iterator(m_players.end()));
+        m_currentPlayerIndex--;
+        }
+    }
+    else
+    {
+        m_currentPlayerIndex++;
+    }
+ }
