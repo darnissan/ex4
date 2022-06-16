@@ -51,7 +51,7 @@ std::unique_ptr<Card> StringToUniquePtrCard(const std::string& string)
     if (string == "Barfight")
         return std::unique_ptr<Card> { new Barfight() };
     else if (string == "Dragon")
-        return std::unique_ptr<Card> { new Dragon() };
+        return std::unique_ptr<BattleCard> { new Dragon() };
     else if (string == "Fairy")
         return std::unique_ptr<Card> { new Fairy() };
     else if (string == "Goblin")
