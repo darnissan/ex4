@@ -104,3 +104,8 @@ std::ostream& operator<<(std::ostream& os, Player& player)
         player.m_level, player.m_force, player.m_HP, player.m_coins);
     return os;
 }
+
+string Player::getName() const
+{
+    return m_name;
+}

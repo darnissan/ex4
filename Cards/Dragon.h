@@ -18,12 +18,10 @@ private:
     std::string m_cardName;
 
 public:
-    Dragon()
-    {
-        m_cardName = "Dragon";
-        m_force = 25;
-    };
+    Dragon() {};
     ~Dragon() {};
 };
 
 #endif /* DRAGON_H_ */
+    winvoid PLplayerWin() override;
+    void playerLoseconst Player &player() ovverrrideerride;const Player play&player

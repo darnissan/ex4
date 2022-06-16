@@ -1,9 +1,8 @@
 #ifndef EX4_PLAYER_H
 #define EX4_PLAYER_H
-
+#include "../Card.h"
 #include "../utilities.h"
 class Player {
-
 public:
     Player(std::string name);
     Player();
@@ -19,8 +18,9 @@ public:
     int getCoins() const;
     int getHP() const;
     Player(const Player&) = default;
-    ~Player() = default;
-    Player& operator=(const Player& other) = default;
+    void win(const Card& card);
+    void lose(const Card& card);er& other) = default;
+    std::string getName() const;
 
     friend std::ostream& operator<<(std::ostream& os, Player& player);
     virtual std::string getJob() const = 0;

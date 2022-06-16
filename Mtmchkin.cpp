@@ -30,6 +30,7 @@ Mtmchkin::Mtmchkin(const std::string fileName)
 
     // CardType *currentCardType;
     ReadingCardsFromFile(fileName);
+    ReadingPlayersFromUser();
 }
 
 bool isStringInVector(const std::vector<const char*>& vector, const std::string& string)
@@ -154,4 +155,15 @@ bool isValidString(const std::string& string)
         }
     }
     return true;
+}
+void Mtmchkin::playRound()
+{
+    m_numberOfRounds++;
+    if (m_currentCardIndex >= m_deckOfCards.size()) {
+        m_currentCardIndex = 0;
+    }
+    if (m_currentPlayerIndex >= m_players.size()) {
+        m_currentPlayerIndex = 0;
+    }
+    m_deckOfCards[m_currentCardIndex].
 }

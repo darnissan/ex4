@@ -11,15 +11,12 @@ protected:
     int m_force;
     int m_damageUponLoss;
     int m_coins;
-    virtual void print(std::ostream& os) const override
-    {
-        printCardDetails(os, m_cardName);
-        printMonsterDetails(os, m_force, m_damageUponLoss, m_coins);
-        printEndOfCardDetails(os);
-    }
+    virtual void print(std::ostream& os) const override;
+    virtual void uniqeAction(std::unique_ptr<Player>& player) override = 0;
 
 private:
-public:
+public:tual void playerWin(const Player player&);
+    virtual void playerLose(const Player player&);
     BattleCard();
     virtual ~BattleCard() {};
 };

@@ -10,6 +10,7 @@ private:
     std::string m_cardName;
 
 public:
+    void uniqeAction(std::unique_ptr<Player>& player) override;
     Vampire() {};
     ~Vampire() {};
 };
