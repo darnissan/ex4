@@ -84,13 +84,12 @@ std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string &string)
 */
 Mtmchkin::~Mtmchkin()
 {
-    
 }
 void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
     std::shared_ptr<Card> currentCard;
     std::cout << "passing entring the read from file" << std::endl;
-    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard= {{"Dragon",std::shared_ptr<Card>(new Dragon())}};
+    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}, {"Barfight", std::shared_ptr<Card>(new Barfight())}};
     std::cout << "passing line 89" << std::endl;
     const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
     std::cout << "passing line 91" << std::endl;
@@ -113,7 +112,7 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
         {
             // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
             // m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
-             currentCard = mapStringToCard.at(line);
+            currentCard = mapStringToCard.at(line);
             m_deckOfCards.push_back(currentCard);
             lineNumber++;
         }
@@ -220,7 +219,8 @@ void Mtmchkin::playRound()
     {
         m_currentPlayerIndex = 0;
     }
-    while (m_currentPlayerIndex < int(m_players.size())){
+    while (m_currentPlayerIndex < int(m_players.size()))
+    {
         m_deckOfCards.at(0)->uniqeAction(m_players.at(m_currentPlayerIndex));
         if (m_players.at(m_currentPlayerIndex)->getLevel() >= 10)
         {
