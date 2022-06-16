@@ -11,7 +11,7 @@ private:
 
 public:
     void uniqeAction(std::unique_ptr<Player>& player) override;
-    Vampire() {};
+    Vampire() ;
     ~Vampire() {};
 };
 

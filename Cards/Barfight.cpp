@@ -1,11 +1,11 @@
 #include "Barfight.h"
-#include "Card.h"
+
 #include <iostream>
 const int hp_damage = 10;
 Barfight::Barfight()
 {
     m_cardName = "Barfight";
-};
+}
 void Barfight::print(std::ostream& os) const
 {
     printCardDetails(os, m_cardName);
@@ -18,4 +18,4 @@ void Barfight::uniqeAction(std::unique_ptr<Player>& player)
     } else {
         player->damage(hp_damage);
     }
-};
+}

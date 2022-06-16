@@ -11,10 +11,10 @@ void Treasure::print(std::ostream& os) const
 Treasure::Treasure()
 {
     m_cardName = "Treasure";
-};
+}
 
 void Treasure::uniqeAction(std::unique_ptr<Player>& player)
 {
     int coins = treasure_coins;
     player->addCoins(coins);
-};
+}

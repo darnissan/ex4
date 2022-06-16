@@ -10,7 +10,7 @@ void Pitfall::print(std::ostream& os) const
 Pitfall::Pitfall()
 {
     m_cardName = "Pitfall";
-};
+}
 void Pitfall::uniqeAction(std::unique_ptr<Player>& player)
 {
     if (player->getJob() == "Rouge") {
@@ -18,4 +18,4 @@ void Pitfall::uniqeAction(std::unique_ptr<Player>& player)
     } else {
         player->damage(hp_damage);
     }
-};
+}

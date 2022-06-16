@@ -1,7 +1,7 @@
 #include "Dragon.h"
 #include "BattleCard.h"
 #include "Card.h"
-#include "Player.h"
+#include <climits>
 
 Dragon::Dragon()
 {
@@ -10,7 +10,7 @@ Dragon::Dragon()
     m_force = 25;
     m_coins = 1000;
     m_damageUponLoss = INT_MAX;
-};
+}
 void Dragon::uniqeAction(std::unique_ptr<Player>& player)
 {
     if (player->getAttackStrength() >= this->m_force) {

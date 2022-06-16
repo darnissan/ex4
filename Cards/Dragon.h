@@ -19,7 +19,7 @@ private:
 
 public:
     void uniqeAction(std::unique_ptr<Player>& player) override;
-    Dragon() {};
+    Dragon();
     ~Dragon() {};
 };
 

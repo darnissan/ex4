@@ -1,6 +1,6 @@
 #ifndef EX4_PLAYER_H
 #define EX4_PLAYER_H
-#include "../Cards/Card.h"
+
 #include <string>
 class Player {
 public:
@@ -23,7 +23,7 @@ public:
     
     std::string getName() const;
 
-    friend std::ostream& operator<<(std::ostream& os, Player& player);
+    friend std::ostream& operator<<(std::ostream& os,const Player& player);
     virtual std::string getJob() const = 0;
 
 protected:

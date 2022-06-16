@@ -35,7 +35,7 @@ Mtmchkin::Mtmchkin(const std::string fileName)
     m_currentPlayerIndex = 0;
 }
 
-bool isStringInVector(const std::vector<const char*>& vector, const std::string& string)
+bool Mtmchkin::isStringInVector(const std::vector<const char*>& vector, const std::string& string)
 {
     for (int i = 0; i < (int)vector.size(); i++) {
         if (vector[i] == string) {
@@ -46,7 +46,7 @@ bool isStringInVector(const std::vector<const char*>& vector, const std::string&
     return false;
 }
 
-std::unique_ptr<Card> StringToUniquePtrCard(const std::string& string)
+std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string& string)
 {
     if (string == "Barfight")
         return std::unique_ptr<Card> { new Barfight() };
@@ -145,7 +145,7 @@ std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string& name, const s
         return nullptr;
 }
 
-bool isValidString(const std::string& string)
+bool Mtmchkin::isValidString(const std::string& string)
 {
     if (string.length() > 15) {
         return false;

@@ -1,5 +1,5 @@
 #include "BattleCard.h"
-
+BattleCard::BattleCard(){}
 void BattleCard::print(std::ostream& os) const
 {
     printCardDetails(os, m_cardName);

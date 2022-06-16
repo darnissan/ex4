@@ -20,4 +20,4 @@ void Fairy::uniqeAction(std::unique_ptr<Player>& Player)
     } else {
         return;
     }
-};
+}

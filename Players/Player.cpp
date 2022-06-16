@@ -1,5 +1,5 @@
 #include "Player.h"
-#include "utilities.h"
+#include "../utilities.h"
 #include <iostream>
 
 using std::string;
@@ -103,7 +103,7 @@ int Player::getCoins() const
     return m_coins;
 }
 
-std::ostream& operator<<(std::ostream& os, Player& player)
+std::ostream& operator<<(std::ostream& os,const Player& player)
 {
     printPlayerDetails(os, player.m_name, player.getJob(),
         player.m_level, player.m_force, player.m_HP, player.m_coins);
