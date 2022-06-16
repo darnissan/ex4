@@ -4,6 +4,7 @@
 #include "../utilities.h"
 #include <iostream>
 #include <stdlib.h>
+#include <memory>
 #include <string>
 class Card {
 protected:

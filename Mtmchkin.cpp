@@ -161,37 +161,38 @@ bool isValidString(const std::string& string)
 void Mtmchkin::playRound()
 {
     m_numberOfRounds++;
-    if (m_currentCardIndex >= m_deckOfCards->size()) {
+    if (m_currentCardIndex >=int( m_deckOfCards->size())) {
         m_currentCardIndex = 0;
     }
-    if (m_currentPlayerIndex >= m_players->size()) {
+    if (m_currentPlayerIndex >= int(m_players->size())) {
         m_currentPlayerIndex = 0;
     }
-    while (m_currentPlayerIndex<m_players.size())
+    while (m_currentPlayerIndex<int(m_players->size()))
     {
-            m_deckOfCards[m_currentCardIndex].uniqeAction(m_players[m_currentPlayerIndex]);
-    if (m_players[m_currentPlayerIndex].getLevel>=10)
+            m_deckOfCards->at(0)->uniqeAction(m_players->at(m_currentPlayerIndex));
+    if (m_players->at(m_currentPlayerIndex)->getLevel()>=10)
     {
-        m_cu
-        m_WinningPlayers.insert(m_WinningPlayers->end(),std::make_move_iterator(m_players->begin+m_currentPlayerIndex),std::make_move_iterator(m_players->end()));
+        
+        m_WinningPlayers->insert(m_WinningPlayers->end(),std::make_move_iterator(m_players->begin()+m_currentPlayerIndex),std::make_move_iterator(m_players->end()));
         m_currentPlayerIndex--;
     }
-    else if (m_players[m_currentPlayerIndex].getLevel<=0)
+    else if (m_players->at(m_currentPlayerIndex)->getLevel()<=0)
         {
             
-        m_LosingPlayers.insert(m_LosingPlayers->end(),std::make_move_iterator(m_players->begin+m_currentPlayerIndex),std::make_move_iterator(m_players->end()));
+        m_LosingPlayers->insert(m_LosingPlayers->end(),std::make_move_iterator(m_players->begin()+m_currentPlayerIndex),std::make_move_iterator(m_players->end()));
         m_currentPlayerIndex--;
         }
-    }
+    
     else
     {
         m_currentPlayerIndex++;
+    }
     }
  }
  
  bool Mtmchkin::isGameOver() const
  {
-     if (m_players.size()<=0 || m_numberOfRounds>=100)
+     if (int(m_players->size())<=0 || m_numberOfRounds>=100)
      return true;
      return false;
  }
@@ -205,19 +206,19 @@ void Mtmchkin::playRound()
  {
      int currentRank=1;
     printLeaderBoardStartMessage();
-    for (std::unique_ptr<Player> player : m_WinningPlayers)
+    for (int i=0; i<(int)m_WinningPlayers->size();i++)
     {
-        printPlayerLeaderBoard(currentRank,player)
+        printPlayerLeaderBoard(currentRank,*m_WinningPlayers->at(0));
         currentRank++;   
     }
-    for (std::unique_ptr<Player> player : m_players)
+    for (int i=0; i<(int)m_players->size();i++)
     {
-        printPlayerLeaderBoard(currentRank,player)
+        printPlayerLeaderBoard(currentRank,*m_players->at(0));
         currentRank++;   
     }
-    for (std::unique_ptr<Player> player : m_LosingPlayers)
+    for (int i=0; i<(int)m_LosingPlayers->size();i++)
     {
-        printPlayerLeaderBoard(currentRank,player);
+        printPlayerLeaderBoard(currentRank,*m_LosingPlayers->at(0));
         currentRank++;   
     }
  }
