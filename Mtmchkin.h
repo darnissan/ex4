@@ -16,11 +16,11 @@ private:
     int m_currentPlayerIndex;
     int m_numberOfRounds;
     int m_numberOfPlayers;
-    std::vector<std::unique_ptr<Player>> *m_WinningPlayers;
-    std::vector<std::unique_ptr<Player>> *m_LosingPlayers;
-    std::vector<std::shared_ptr<Card>> *m_deckOfCards;
-    std::vector<std::unique_ptr<Player>> *m_players;
-    std::vector<std::unique_ptr<Player>> *m_leadBoard;
+    std::vector<std::unique_ptr<Player>> m_WinningPlayers;
+    std::vector<std::unique_ptr<Player>> m_LosingPlayers;
+    std::vector<std::shared_ptr<Card>> m_deckOfCards;
+    std::vector<std::unique_ptr<Player>> m_players;
+    std::vector<std::unique_ptr<Player>> m_leadBoard;
     bool isStringInVector(const std::vector<const char *> &vector, const std::string &string);
 
     std::unique_ptr<Card> StringToUniquePtrCard(const std::string &string);
@@ -38,6 +38,7 @@ public:
      *      A new instance of Mtmchkin.
      */
     Mtmchkin(const std::string fileName);
+    ~Mtmchkin();
 
     /*
      * Play the next Round of the game - according to the instruction in the exercise document.

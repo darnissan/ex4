@@ -59,7 +59,7 @@ std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string& string)
     else if (string == "Goblin")
         return std::unique_ptr<Card> { new Goblin() };
     else if (string == "Pitfall")
-        return std::unique_ptr<Card> { new Pitfall() };
+        return std::uniq3ue_ptr<Card> { new Pitfall() };
     else if (string == "Treasure")
         return std::unique_ptr<Card> { new Treasure() };
     else if (string == "Vampire")
@@ -82,11 +82,15 @@ std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string &string)
     return std::unique_ptr<Card>{mapStringToCard[string]};
 }
 */
+Mtmchkin::~Mtmchkin()
+{
+    
+}
 void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
-    // Card *currentCard;
+    std::shared_ptr<Card> currentCard;
     std::cout << "passing entring the read from file" << std::endl;
-    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Barfight", std::shared_ptr<Card>(new Barfight())}, {"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}};
+    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard= {{"Dragon",std::shared_ptr<Card>(new Dragon())}};
     std::cout << "passing line 89" << std::endl;
     const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
     std::cout << "passing line 91" << std::endl;
@@ -109,12 +113,12 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
         {
             // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
             // m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
-            // currentCard = mapStringToCard[line];
-            m_deckOfCards->push_back(mapStringToCard[line]);
+             currentCard = mapStringToCard.at(line);
+            m_deckOfCards.push_back(currentCard);
             lineNumber++;
         }
     }
-    if (m_deckOfCards->size() < 5)
+    if (m_deckOfCards.size() < 5)
     {
         throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
     }
@@ -173,7 +177,7 @@ void Mtmchkin::ReadingPlayersFromUser()
                 validClassName = true;
             }
         }
-        m_players->insert(m_players->end(), StringToUniquePtrPlayer(userInput, userClassInput));
+        m_players.insert(m_players.end(), StringToUniquePtrPlayer(userInput, userClassInput));
     }
 }
 
@@ -208,27 +212,26 @@ bool Mtmchkin::isValidString(const std::string &string)
 void Mtmchkin::playRound()
 {
     m_numberOfRounds++;
-    if (m_currentCardIndex >= int(m_deckOfCards->size()))
+    if (m_currentCardIndex >= int(m_deckOfCards.size()))
     {
         m_currentCardIndex = 0;
     }
-    if (m_currentPlayerIndex >= int(m_players->size()))
+    if (m_currentPlayerIndex >= int(m_players.size()))
     {
         m_currentPlayerIndex = 0;
     }
-    while (m_currentPlayerIndex < int(m_players->size()))
-    {
-        m_deckOfCards->at(0)->uniqeAction(m_players->at(m_currentPlayerIndex));
-        if (m_players->at(m_currentPlayerIndex)->getLevel() >= 10)
+    while (m_currentPlayerIndex < int(m_players.size())){
+        m_deckOfCards.at(0)->uniqeAction(m_players.at(m_currentPlayerIndex));
+        if (m_players.at(m_currentPlayerIndex)->getLevel() >= 10)
         {
 
-            m_WinningPlayers->insert(m_WinningPlayers->end(), std::make_move_iterator(m_players->begin() + m_currentPlayerIndex), std::make_move_iterator(m_players->end()));
+            m_WinningPlayers.insert(m_WinningPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.end()));
             m_currentPlayerIndex--;
         }
-        else if (m_players->at(m_currentPlayerIndex)->getLevel() <= 0)
+        else if (m_players.at(m_currentPlayerIndex)->getLevel() <= 0)
         {
 
-            m_LosingPlayers->insert(m_LosingPlayers->end(), std::make_move_iterator(m_players->begin() + m_currentPlayerIndex), std::make_move_iterator(m_players->end()));
+            m_LosingPlayers.insert(m_LosingPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.end()));
             m_currentPlayerIndex--;
         }
 
@@ -241,7 +244,7 @@ void Mtmchkin::playRound()
 
 bool Mtmchkin::isGameOver() const
 {
-    if (int(m_players->size()) <= 0 || m_numberOfRounds >= 100)
+    if (int(m_players.size()) <= 0 || m_numberOfRounds >= 100)
         return true;
     return false;
 }
@@ -255,19 +258,19 @@ void Mtmchkin::printLeaderBoard() const
 {
     int currentRank = 1;
     printLeaderBoardStartMessage();
-    for (int i = 0; i < (int)m_WinningPlayers->size(); i++)
+    for (int i = 0; i < (int)m_WinningPlayers.size(); i++)
     {
-        printPlayerLeaderBoard(currentRank, *m_WinningPlayers->at(0));
+        printPlayerLeaderBoard(currentRank, *m_WinningPlayers.at(0));
         currentRank++;
     }
-    for (int i = 0; i < (int)m_players->size(); i++)
+    for (int i = 0; i < (int)m_players.size(); i++)
     {
-        printPlayerLeaderBoard(currentRank, *m_players->at(0));
+        printPlayerLeaderBoard(currentRank, *m_players.at(0));
         currentRank++;
     }
-    for (int i = 0; i < (int)m_LosingPlayers->size(); i++)
+    for (int i = 0; i < (int)m_LosingPlayers.size(); i++)
     {
-        printPlayerLeaderBoard(currentRank, *m_LosingPlayers->at(0));
+        printPlayerLeaderBoard(currentRank, *m_LosingPlayers.at(0));
         currentRank++;
     }
 }
