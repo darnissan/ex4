@@ -167,5 +167,4 @@ void Mtmchkin::playRound()
     if (m_currentPlayerIndex >= m_players->size()) {
         m_currentPlayerIndex = 0;
     }
-    m_deckOfCards[m_currentCardIndex].
 }
