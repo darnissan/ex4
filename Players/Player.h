@@ -1,9 +1,10 @@
 #ifndef EX4_PLAYER_H
 #define EX4_PLAYER_H
-#include "../Card.h"
+#include "../Cards/Card.h"
 #include "../utilities.h"
 class Player {
 public:
+    void totalyDead();
     Player(std::string name);
     Player();
     void levelUp();
@@ -19,7 +20,7 @@ public:
     int getHP() const;
     Player(const Player&) = default;
     void win(const Card& card);
-    void lose(const Card& card);er& other) = default;
+    void lose(const Card& card);
     std::string getName() const;
 
     friend std::ostream& operator<<(std::ostream& os, Player& player);

@@ -30,14 +30,10 @@ Mtmchkin::Mtmchkin(const std::string fileName)
 
     // CardType *currentCardType;
     ReadingCardsFromFile(fileName);
-    ReadingPlayersFromUser();
-    HEAD
-        == == ==
-        = m_currentCardIndex = 0;
+    ReadingPlayersFromUser() = m_currentCardIndex = 0;
     m_currentPlayerIndex = 0;
     while (m_players.size() != 0) {
     }
->>>>>>> 9f7ccf518bc6f1833854613d71433bd16624a4cb
 }
 
 bool isStringInVector(const std::vector<const char*>& vector, const std::string& string)
