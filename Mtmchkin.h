@@ -15,8 +15,8 @@ private:
     int m_currentPlayerIndex;
     int m_numberOfRounds;
     int m_numberOfPlayers;
-    std::vector<std::unique_ptr> m_WinningPlayers;
-    std::vector<std::unique_ptr> m_LosingPlayers;
+    std::vector<std::unique_ptr<Player>>* m_WinningPlayers;
+    std::vector<std::unique_ptr<Player>>* m_LosingPlayers;
     std::vector<std::unique_ptr<Card>>* m_deckOfCards;
     std::vector<std::unique_ptr<Player>>* m_players;
     std::vector<std::unique_ptr<Player>>* m_leadBoard;
