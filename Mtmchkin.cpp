@@ -189,7 +189,7 @@ void Mtmchkin::playRound()
     }
  }
  
- bool Mtmchkin::isGameOver()
+ bool Mtmchkin::isGameOver() const
  {
      if (m_players.size()<=0 || m_numberOfRounds>=100)
      return true;
@@ -201,7 +201,7 @@ void Mtmchkin::playRound()
      return m_numberOfRounds;
  }
 
- void Mtmchkin::printLeaderBoard()
+ void Mtmchkin::printLeaderBoard() const
  {
      int currentRank=1;
     printLeaderBoardStartMessage();
