@@ -45,7 +45,7 @@ bool Mtmchkin::isStringInVector(const std::vector<const char*>& vector, const st
     }
     return false;
 }
-
+/*
 std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string& string)
 {
     if (string == "Barfight")
@@ -65,6 +65,11 @@ std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string& string)
     else
         return nullptr;
 }
+*/
+std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string& string)
+{
+   std::map<std::string, std::function> mapStringToCard = {"Barfight ", Barfight::clone()}};
+   mapStringToCard
 
 void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
