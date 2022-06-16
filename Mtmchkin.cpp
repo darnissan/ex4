@@ -82,7 +82,8 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
             throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
         }
         // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
-        m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
+        //m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
+        m_deckOfCards->push_back(StringToUniquePtrCard(line));
         lineNumber++;
     }
     if (m_deckOfCards->size() < 5) {
