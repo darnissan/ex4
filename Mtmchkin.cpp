@@ -84,8 +84,8 @@ std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string &string)
 */
 void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
-    Card *currentCard;
-    std::map<std::string, Card *> mapStringToCard = {{"Barfight", new Barfight()}, {"Dragon", new Dragon()}, {"Fairy", new Fairy()}, {"Goblin", new Goblin()}, {"Pitfall", new Pitfall()}, {"Treasure", new Treasure()}, {"Vampire", new Vampire()}};
+    // Card *currentCard;
+    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Barfight", std::shared_ptr<Card>(new Barfight())}, {"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}};
     const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
     std::ifstream file(fileName);
     if (!file.is_open())
@@ -106,8 +106,8 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
         {
             // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
             // m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
-            currentCard = mapStringToCard[line];
-            m_deckOfCards->push_back(std::unique_ptr<Card>{currentCard->clone()});
+            // currentCard = mapStringToCard[line];
+            m_deckOfCards->push_back(mapStringToCard[line]);
             lineNumber++;
         }
     }
