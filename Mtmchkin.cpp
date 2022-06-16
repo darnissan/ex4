@@ -30,7 +30,8 @@ Mtmchkin::Mtmchkin(const std::string fileName)
 
     // CardType *currentCardType;
     ReadingCardsFromFile(fileName);
-    ReadingPlayersFromUser() = m_currentCardIndex = 0;
+    m_currentCardIndex = 0;
+    ReadingPlayersFromUser();
     m_currentPlayerIndex = 0;
     while (m_players.size() != 0) {
     }

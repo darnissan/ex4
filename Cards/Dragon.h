@@ -18,10 +18,9 @@ private:
     std::string m_cardName;
 
 public:
+    void uniqeAction(std::unique_ptr<Player>& player) override;
     Dragon() {};
     ~Dragon() {};
 };
 
 #endif /* DRAGON_H_ */
-    winvoid PLplayerWin() override;
-    void playerLoseconst Player &player() ovverrrideerride;const Player play&player
