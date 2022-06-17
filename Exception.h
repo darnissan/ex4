@@ -34,7 +34,7 @@ public:
     DeckFileFormatError(const std::string &msg, std::string lineNumberInDeckFile) : Exception(msg)
     {
         m_lineNumberInDeckFile = lineNumberInDeckFile;
-        m_errorMessage = "Deck File Error: Format error in line " + m_lineNumberInDeckFile;
+        m_errorMessage = "Deck File Error: File format error in line " + m_lineNumberInDeckFile;
     }
     virtual ~DeckFileFormatError() {}
     virtual const char *what() const

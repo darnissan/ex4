@@ -22,7 +22,7 @@ private:
     std::vector<std::unique_ptr<Player>> m_players;
     std::vector<std::unique_ptr<Player>> m_leadBoard;
     bool isStringInVector(const std::vector<const char *> &vector, const std::string &string);
-
+    bool  is_emptyFile(std::ifstream& pFile);
     std::unique_ptr<Card> StringToUniquePtrCard(const std::string &string);
     std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string &name, const std::string &m_class);
     void ReadingCardsFromFile(const std::string fileName);
