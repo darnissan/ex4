@@ -245,12 +245,19 @@ void Mtmchkin::playRound()
             m_currentPlayerIndex++;
         }
     }
+    if (isGameOver())
+    {
+        printGameEndMessage();
+    }
 }
 
 bool Mtmchkin::isGameOver() const
 {
     if (int(m_players.size()) <= 0 || m_numberOfRounds >= 100)
+    {
+         
         return true;
+    }
     return false;
 }
 
@@ -273,7 +280,7 @@ void Mtmchkin::printLeaderBoard() const
         printPlayerLeaderBoard(currentRank, *m_players.at(i));
         currentRank++;
     }
-    for (int i = 0; i < (int)m_LosingPlayers.size(); i++)
+    for (int i = (int)m_LosingPlayers.size()-1; i >=0; i--)
     {
         printPlayerLeaderBoard(currentRank, *m_LosingPlayers.at(i));
         currentRank++;
