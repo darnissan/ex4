@@ -1,12 +1,44 @@
 Welcome to the world of MtmChkin!!!
-passing entring the read from file
-passing line 89
-passing line 91
-Goblin
-Goblin
-Goblin
-Goblin
-Goblin
 Please enter team size: (2-6)
 Please insert the player name and class: 
 Please insert the player name and class: 
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            2         5     100   12    Wizard  
+2          Pikachu         2         5     100   14    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            3         5     100   14    Wizard  
+2          Pikachu         3         5     100   18    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            4         5     100   16    Wizard  
+2          Pikachu         4         5     100   22    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            5         5     100   18    Wizard  
+2          Pikachu         5         5     100   26    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            6         5     100   20    Wizard  
+2          Pikachu         6         5     100   30    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            7         5     100   22    Wizard  
+2          Pikachu         7         5     100   34    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            8         5     100   24    Wizard  
+2          Pikachu         8         5     100   38    Rogue  
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            9         5     100   26    Wizard  
+2          Pikachu         9         5     100   42    Rogue  
