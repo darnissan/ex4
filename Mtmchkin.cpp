@@ -14,7 +14,6 @@
 #include "Players/Wizard.h"
 #include "utilities.h"
 #include <fstream>
-#include <algorithm>
 #include <iostream>
 #include <map>
 #include <memory>
@@ -90,18 +89,14 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
     std::shared_ptr<Card> currentCard;
 
-    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}, {"Barfight", std::shared_ptr<Card>(new Barfight())}};
+    static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}, {"Barfight", std::shared_ptr<Card>(new Barfight())}, {"Merchant", std::shared_ptr<Card>(new Merchant())}};
 
-    const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
+    const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire", "Merchant"};
 
     std::ifstream file(fileName);
     if (!file.is_open())
     {
         throw DeckFileNotFound("Deck File Error: File not found");
-    }
-    if (is_emptyFile(file))
-    {
-        throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
     }
     int lineNumber = 1;
     while (!file.eof())
@@ -249,9 +244,8 @@ void Mtmchkin::playRound()
         {
             m_currentPlayerIndex++;
         }
-        std::rotate(m_deckOfCards.begin(), m_deckOfCards.begin() + 1, m_deckOfCards.end());
     }
-    if (m_players.size()<=0)
+    if (isGameOver())
     {
         printGameEndMessage();
     }
@@ -261,7 +255,7 @@ bool Mtmchkin::isGameOver() const
 {
     if (int(m_players.size()) <= 0 || m_numberOfRounds >= 100)
     {
-         
+
         return true;
     }
     return false;
@@ -286,13 +280,9 @@ void Mtmchkin::printLeaderBoard() const
         printPlayerLeaderBoard(currentRank, *m_players.at(i));
         currentRank++;
     }
-    for (int i = (int)m_LosingPlayers.size()-1; i >=0; i--)
+    for (int i = (int)m_LosingPlayers.size() - 1; i >= 0; i--)
     {
         printPlayerLeaderBoard(currentRank, *m_LosingPlayers.at(i));
         currentRank++;
     }
-}
-bool  Mtmchkin::is_emptyFile(std::ifstream& pFile)
-{
-    return pFile.peek() == std::ifstream::traits_type::eof();
 }
