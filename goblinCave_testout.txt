@@ -112,3 +112,11 @@ Start of round 9:
 
 Start of Itay's turn: 
 Player Itay has defeated Goblin and rose 1 Level!
+Start of Pikachu's turn: 
+Player Pikachu has defeated Goblin and rose 1 Level!
+The Game has ended!!!
+
+The current ranking of the Team:
+Ranking    Player Name     Level     Force HP    Coins Job
+1          Itay            10        5     100   28    Wizard  
+2          Pikachu         10        5     100   46    Rogue  

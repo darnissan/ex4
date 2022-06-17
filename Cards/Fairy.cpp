@@ -16,6 +16,7 @@ Fairy::Fairy()
 void Fairy::uniqeAction(std::unique_ptr<Player>& Player)
 {
     if (Player->getJob() == "Wizard") {
+        
         Player->heal(hp_heal);
     } else {
         return;
