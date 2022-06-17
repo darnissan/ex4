@@ -14,6 +14,7 @@
 #include "Players/Wizard.h"
 #include "utilities.h"
 #include <fstream>
+#include <algorithm>
 #include <iostream>
 #include <map>
 #include <memory>
@@ -244,8 +245,9 @@ void Mtmchkin::playRound()
         {
             m_currentPlayerIndex++;
         }
+        std::rotate(m_deckOfCards.begin(), m_deckOfCards.begin() + 1, m_deckOfCards.end());
     }
-    if (isGameOver())
+    if (m_players.size()<=0)
     {
         printGameEndMessage();
     }
