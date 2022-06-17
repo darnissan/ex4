@@ -98,6 +98,10 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
     {
         throw DeckFileNotFound("Deck File Error: File not found");
     }
+    if (is_emptyFile(file))
+    {
+        throw DeckFileInvalidSize("Deck File Error: Deck size is invalid");
+    }
     int lineNumber = 1;
     while (!file.eof())
     {
@@ -285,4 +289,8 @@ void Mtmchkin::printLeaderBoard() const
         printPlayerLeaderBoard(currentRank, *m_LosingPlayers.at(i));
         currentRank++;
     }
+}
+bool Mtmchkin::is_emptyFile(std::ifstream &pFile)
+{
+    return pFile.peek() == std::ifstream::traits_type::eof();
 }
