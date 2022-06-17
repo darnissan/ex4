@@ -88,11 +88,11 @@ Mtmchkin::~Mtmchkin()
 void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
 {
     std::shared_ptr<Card> currentCard;
-   
+
     static std::map<std::string, const std::shared_ptr<Card>> mapStringToCard = {{"Dragon", std::shared_ptr<Card>(new Dragon())}, {"Fairy", std::shared_ptr<Card>(new Fairy())}, {"Goblin", std::shared_ptr<Card>(new Goblin())}, {"Pitfall", std::shared_ptr<Card>(new Pitfall())}, {"Treasure", std::shared_ptr<Card>(new Treasure())}, {"Vampire", std::shared_ptr<Card>(new Vampire())}, {"Barfight", std::shared_ptr<Card>(new Barfight())}};
-    
+
     const std::vector<const char *> CardTypes = {"Barfight", "Dragon", "Fairy", "Goblin", "Pitfall", "Treasure", "Vampire"};
-    
+
     std::ifstream file(fileName);
     if (!file.is_open())
     {
@@ -103,7 +103,7 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
     {
         std::string line;
         std::getline(file, line);
-        
+
         if (!isStringInVector(CardTypes, line))
         {
             throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
@@ -210,8 +210,9 @@ bool Mtmchkin::isValidString(const std::string &string)
 }
 void Mtmchkin::playRound()
 {
-    
+
     m_numberOfRounds++;
+    printRoundStartMessage(m_numberOfRounds);
     if (m_currentCardIndex >= int(m_deckOfCards.size()))
     {
         m_currentCardIndex = 0;
@@ -222,20 +223,21 @@ void Mtmchkin::playRound()
     }
     while (m_currentPlayerIndex < int(m_players.size()))
     {
+        printTurnStartMessage(m_players[m_currentPlayerIndex]->getName());
         m_deckOfCards.at(0)->uniqeAction(m_players.at(m_currentPlayerIndex));
         if (m_players.at(m_currentPlayerIndex)->getLevel() >= 10)
         {
 
             m_WinningPlayers.insert(m_WinningPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.end()));
-           m_players.erase(m_players.begin()+m_currentPlayerIndex);
-           // m_currentPlayerIndex--;
+            m_players.erase(m_players.begin() + m_currentPlayerIndex);
+            // m_currentPlayerIndex--;
         }
         else if (m_players.at(m_currentPlayerIndex)->isKnockedOut())
         {
 
-            m_LosingPlayers.insert(m_LosingPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.begin() + (m_currentPlayerIndex+1)));
-            m_players.erase(m_players.begin()+m_currentPlayerIndex);
-            //m_currentPlayerIndex--;
+            m_LosingPlayers.insert(m_LosingPlayers.end(), std::make_move_iterator(m_players.begin() + m_currentPlayerIndex), std::make_move_iterator(m_players.begin() + (m_currentPlayerIndex + 1)));
+            m_players.erase(m_players.begin() + m_currentPlayerIndex);
+            // m_currentPlayerIndex--;
         }
 
         else
