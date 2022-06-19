@@ -5,13 +5,15 @@
 #include <iostream>
 #include <stdlib.h>
 #include <string>
-class Goblin : public BattleCard {
+class Goblin : public BattleCard
+{
 private:
 public:
-Card* clone() const  ;
-    void uniqeAction(std::unique_ptr<Player>& player) override;
+    Card *clone() const;
+    void uniqeAction(std::unique_ptr<Player> &player) override;
     Goblin();
-    ~Goblin() {};
+    ~Goblin(){};
+    void print(std::ostream &os) const;
 };
 
 #endif /* GOBLIN_H_ */

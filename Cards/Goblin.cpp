@@ -8,6 +8,12 @@ Goblin::Goblin()
     m_coins = 2;
     m_damageUponLoss = 10;
 }
+void Goblin::print(std::ostream &os) const
+{
+    printCardDetails(os, m_cardName);
+    printMonsterDetails(os, m_force, m_damageUponLoss, m_coins);
+    printEndOfCardDetails(os);
+}
 
 void Goblin::uniqeAction(std::unique_ptr<Player> &player)
 {
@@ -24,6 +30,7 @@ void Goblin::uniqeAction(std::unique_ptr<Player> &player)
         player->damage(this->m_damageUponLoss);
     }
 }
+
 Card *Goblin::clone() const
 {
     return new Goblin();
