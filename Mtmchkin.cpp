@@ -158,13 +158,33 @@ bool isValidString(const std::string& string)
     }
     return true;
 }
+
+void Mtmchkin::playingNumberOfRounds()
+{
+    while (m_currentPlayerIndex < m_players->size()) // loop all over the players
+    {
+        m_deckOfCards->at(m_currentCardIndex)->uniqeAction(m_players->at(m_currentPlayerIndex)); // playing the card for current player
+        std::rotate(m_deckOfCards->begin(), m_deckOfCards->begin() + 1, m_deckOfCards->end()); // rotating the deck of cards
+        if (m_players->at(m_currentPlayerIndex)->isKnockedOut()) {
+            m_LosingPlayers.insert(m_LosingPlayers.end(), std::make_move_iterator(m_players->begin() + m_currentPlayerIndex),
+                std::make_move_iterator(m_players->end()));
+        } else if (m_players->at(m_currentPlayerIndex)->getLevel() == 10) {
+            m_WinningPlayers.insert(m_WinningPlayers.end(), std::make_move_iterator(m_players->begin() + m_currentPlayerIndex),
+                std::make_move_iterator(m_players->end()));
+        } else {
+            m_currentPlayerIndex++;
+        }
+    }
+}
 void Mtmchkin::playRound()
 {
-    m_numberOfRounds++;
-    if (m_currentCardIndex >= m_deckOfCards->size()) {
+    m_numberOfRounds++; // rounds++
+    if (m_currentCardIndex >= m_deckOfCards->size()) { // check valid index {
+
         m_currentCardIndex = 0;
     }
     if (m_currentPlayerIndex >= m_players->size()) {
         m_currentPlayerIndex = 0;
     }
+    playingNumberOfRounds();
 }
