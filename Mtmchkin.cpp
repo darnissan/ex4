@@ -229,6 +229,7 @@ void Mtmchkin::playRound()
     {
         printTurnStartMessage(m_players[m_currentPlayerIndex]->getName());
         m_deckOfCards.at(0)->uniqeAction(m_players.at(m_currentPlayerIndex));
+        std::cout << *m_deckOfCards.at(0) << std::endl;
         if (m_players.at(m_currentPlayerIndex)->getLevel() >= 10)
         {
 
