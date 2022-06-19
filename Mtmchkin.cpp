@@ -249,6 +249,7 @@ void Mtmchkin::playRound()
         {
             m_currentPlayerIndex++;
         }
+        std::rotate(m_deckOfCards.begin(), m_deckOfCards.begin() + 1, m_deckOfCards.end());
     }
     if (isGameOver())
     {
