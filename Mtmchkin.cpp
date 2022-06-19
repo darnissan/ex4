@@ -21,6 +21,7 @@
 #include <string.h>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 Mtmchkin::Mtmchkin(const std::string fileName)
 {
