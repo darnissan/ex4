@@ -10,13 +10,8 @@ void Pitfall::print(std::ostream &os) const
 Pitfall::Pitfall()
 {
     m_cardName = "Pitfall";
-<<<<<<< HEAD
-};
-void Pitfall::uniqeAction(std::unique_ptr<Player>& player)
-=======
 }
 void Pitfall::uniqeAction(std::unique_ptr<Player> &player)
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 {
     if (player->getJob() == "Rogue")
     {
@@ -28,12 +23,8 @@ void Pitfall::uniqeAction(std::unique_ptr<Player> &player)
         printPitfallMessage(false);
         player->damage(hp_damage);
     }
-<<<<<<< HEAD
-};
-=======
 }
 Card *Pitfall::clone() const
 {
     return new Pitfall();
 }
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a

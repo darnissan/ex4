@@ -35,11 +35,7 @@ Mtmchkin::Mtmchkin(const std::string fileName)
     m_currentPlayerIndex = 0;
 }
 
-<<<<<<< HEAD
-bool isStringInVector(const std::vector<const char*>& vector, const std::string& string)
-=======
 bool Mtmchkin::isStringInVector(const std::vector<const char *> &vector, const std::string &string)
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 {
     for (int i = 0; i < (int)vector.size(); i++)
     {
@@ -51,18 +47,13 @@ bool Mtmchkin::isStringInVector(const std::vector<const char *> &vector, const s
     }
     return false;
 }
-<<<<<<< HEAD
-
-std::unique_ptr<Card> StringToUniquePtrCard(const std::string& string)
-=======
 /*
 std::unique_ptr<Card> Mtmchkin::StringToUniquePtrCard(const std::string& string)
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 {
     if (string == "Barfight")
         return std::unique_ptr<Card> { new Barfight() };
     else if (string == "Dragon")
-        return std::unique_ptr<Card> { new Dragon() };
+        return std::unique_ptr<BattleCard> { new Dragon() };
     else if (string == "Fairy")
         return std::unique_ptr<Card> { new Fairy() };
     else if (string == "Goblin")
@@ -121,11 +112,6 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
         {
             throw DeckFileFormatError("Deck File Error: File format error in line ", std::to_string(lineNumber));
         }
-<<<<<<< HEAD
-        // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
-        m_deckOfCards->insert(m_deckOfCards->end(), StringToUniquePtrCard(line));
-        lineNumber++;
-=======
         else
         {
             // std::unique_ptr<Card> currentCard = Card::Card(cardTypeMap[line]);
@@ -134,7 +120,6 @@ void Mtmchkin::ReadingCardsFromFile(const std::string fileName)
             m_deckOfCards.push_back(currentCard);
             lineNumber++;
         }
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
     }
     if (m_deckOfCards.size() < 5)
     {
@@ -199,11 +184,7 @@ void Mtmchkin::ReadingPlayersFromUser()
     }
 }
 
-<<<<<<< HEAD
-std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string& name, const std::string& m_class)
-=======
 std::unique_ptr<Player> Mtmchkin::StringToUniquePtrPlayer(const std::string &name, const std::string &m_class)
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 {
     if (m_class == "Fighter")
         return std::unique_ptr<Player>{new Fighter(name)};
@@ -215,11 +196,7 @@ std::unique_ptr<Player> Mtmchkin::StringToUniquePtrPlayer(const std::string &nam
         return nullptr;
 }
 
-<<<<<<< HEAD
-bool isValidString(const std::string& string)
-=======
 bool Mtmchkin::isValidString(const std::string &string)
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 {
     if (string.length() > 15)
     {
@@ -235,38 +212,8 @@ bool Mtmchkin::isValidString(const std::string &string)
     }
     return true;
 }
-
-void Mtmchkin::playingNumberOfRounds()
-{
-    while (m_currentPlayerIndex < m_players->size()) // loop all over the players
-    {
-        m_deckOfCards->at(m_currentCardIndex)->uniqeAction(m_players->at(m_currentPlayerIndex)); // playing the card for current player
-        std::rotate(m_deckOfCards->begin(), m_deckOfCards->begin() + 1, m_deckOfCards->end()); // rotating the deck of cards
-        if (m_players->at(m_currentPlayerIndex)->isKnockedOut()) {
-            m_LosingPlayers.insert(m_LosingPlayers.end(), std::make_move_iterator(m_players->begin() + m_currentPlayerIndex),
-                std::make_move_iterator(m_players->end()));
-        } else if (m_players->at(m_currentPlayerIndex)->getLevel() == 10) {
-            m_WinningPlayers.insert(m_WinningPlayers.end(), std::make_move_iterator(m_players->begin() + m_currentPlayerIndex),
-                std::make_move_iterator(m_players->end()));
-        } else {
-            m_currentPlayerIndex++;
-        }
-    }
-}
 void Mtmchkin::playRound()
 {
-<<<<<<< HEAD
-    m_numberOfRounds++; // rounds++
-    if (m_currentCardIndex >= m_deckOfCards->size()) { // check valid index {
-
-        m_currentCardIndex = 0;
-    }
-    if (m_currentPlayerIndex >= m_players->size()) {
-        m_currentPlayerIndex = 0;
-    }
-    playingNumberOfRounds();
-}
-=======
 
     m_numberOfRounds++;
     printRoundStartMessage(m_numberOfRounds);
@@ -347,4 +294,3 @@ bool Mtmchkin::is_emptyFile(std::ifstream &pFile)
 {
     return pFile.peek() == std::ifstream::traits_type::eof();
 }
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a

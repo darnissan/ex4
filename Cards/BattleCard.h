@@ -1,6 +1,7 @@
 #ifndef BATTLECARD_H_
 #define BATTLECARD_H_
 #include "../utilities.h"
+#include"../Players/Player.h"
 #include "Card.h"
 #include <iostream>
 #include <stdlib.h>

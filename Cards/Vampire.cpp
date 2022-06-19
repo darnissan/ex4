@@ -8,13 +8,8 @@ Vampire::Vampire()
     m_coins = 2;
     m_damageUponLoss = 10;
     m_force = 10;
-<<<<<<< HEAD
-};
-void Vampire::uniqeAction(std::unique_ptr<Player>& player)
-=======
 }
 void Vampire::uniqeAction(std::unique_ptr<Player> &player)
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 {
     if (player->getAttackStrength() >= this->m_force)
     {

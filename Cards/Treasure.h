@@ -7,11 +7,7 @@
 #include <string>
 class Treasure : public Card {
 protected:
-    virtual void print(std::ostream& os) const override
-    {
-        printCardDetails(os, m_cardName);
-        printEndOfCardDetails(os);
-    }
+    virtual void print(std::ostream& os) const override;
 
 private:
     std::string m_cardName;

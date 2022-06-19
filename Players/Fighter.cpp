@@ -2,9 +2,7 @@
 
 using std::string;
 
-Fighter::Fighter(std::string name)
-{
-}
+
 
 int Fighter::getAttackStrength() const
 {

@@ -25,12 +25,8 @@ void Fairy::uniqeAction(std::unique_ptr<Player> &Player)
         printFairyMessage(false);
         return;
     }
-<<<<<<< HEAD
-};
-=======
 }
 Card *Fairy::clone() const
 {
     return new Fairy();
 }
->>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a

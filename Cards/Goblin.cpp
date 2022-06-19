@@ -7,7 +7,7 @@ Goblin::Goblin()
     m_force = 6;
     m_coins = 2;
     m_damageUponLoss = 10;
-};
+}
 
 void Goblin::uniqeAction(std::unique_ptr<Player> &player)
 {
