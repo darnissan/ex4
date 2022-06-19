@@ -1,14 +1,14 @@
-#ifndef EX4_ROUGE_H
-#define EX4_ROUGE_H
+#ifndef EX4_Rogue_H
+#define EX4_Rogue_H
 #include "Player.h"
 
-class Rouge : public Player {
+class Rogue : public Player {
 public:
-    Rouge(std::string name)
+    Rogue(std::string name)
         : Player(name) {};
-    ~Rouge() {};
+    ~Rogue() {};
     void addCoins(int coins) override;
     std::string getJob() const override;
 };
 
-#endif // EX4_ROUGE_H
+#endif // EX4_Rogue_H

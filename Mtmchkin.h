@@ -9,12 +9,14 @@
 #include <string>
 #include <vector>
 
-class Mtmchkin {
+class Mtmchkin
+{
 private:
     int m_currentCardIndex;
     int m_currentPlayerIndex;
-    int m_numberOfRounds;
+    int m_numberOfRounds = 0;
     int m_numberOfPlayers;
+<<<<<<< HEAD
     std::vector<std::unique_ptr> m_WinningPlayers;
     std::vector<std::unique_ptr> m_LosingPlayers;
     std::vector<std::unique_ptr<Card>>* m_deckOfCards;
@@ -27,6 +29,20 @@ private:
     void ReadingPlayersFromUser();
     bool isValidString(const std::string& string);
     void Mtmchkin::playingNumberOfRounds();
+=======
+    std::vector<std::unique_ptr<Player>> m_WinningPlayers;
+    std::vector<std::unique_ptr<Player>> m_LosingPlayers;
+    std::vector<std::shared_ptr<Card>> m_deckOfCards;
+    std::vector<std::unique_ptr<Player>> m_players;
+    std::vector<std::unique_ptr<Player>> m_leadBoard;
+    bool isStringInVector(const std::vector<const char *> &vector, const std::string &string);
+    bool is_emptyFile(std::ifstream &pFile);
+    std::unique_ptr<Card> StringToUniquePtrCard(const std::string &string);
+    std::unique_ptr<Player> StringToUniquePtrPlayer(const std::string &name, const std::string &m_class);
+    void ReadingCardsFromFile(const std::string fileName);
+    void ReadingPlayersFromUser();
+    bool isValidString(const std::string &string);
+>>>>>>> 2302d45a5a5726396d7a080c3ef1ace51b54a27a
 
 public:
     /*
@@ -37,6 +53,7 @@ public:
      *      A new instance of Mtmchkin.
      */
     Mtmchkin(const std::string fileName);
+    ~Mtmchkin();
 
     /*
      * Play the next Round of the game - according to the instruction in the exercise document.

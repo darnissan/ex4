@@ -34,6 +34,10 @@ void Player::buff(int force)
 void Player::unbuff(int force)
 {
     m_force += force;
+    if (m_force<=0)
+    {
+        m_force=0;
+    }
 }
 
 void Player::heal(int heal)

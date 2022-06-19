@@ -55,3 +55,7 @@ void Merchant::uniqeAction(std::unique_ptr<Player>& player)
         }
     }
 }
+Card* Merchant::clone( ) const
+{
+    return new Merchant();
+}

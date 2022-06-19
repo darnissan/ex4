@@ -17,6 +17,7 @@ private:
     std::string m_cardName;
 
 public:
+Card* clone() const  ;
     void uniqeAction(std::unique_ptr<Player>& player) override;
     Treasure();
     ~Treasure() {};
