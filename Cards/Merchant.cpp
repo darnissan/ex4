@@ -20,7 +20,7 @@ void Merchant::uniqeAction(std::unique_ptr<Player> &player)
     int playerCoins = player->getCoins();
     printMerchantInitialMessageForInteractiveEncounter(std::cout, player->getName(), playerCoins);
     // read input from user and check if number
-    bool validInput = false;
+
     bool intInRange = false;
     do
     {
@@ -104,4 +104,5 @@ bool Merchant::IsIntInRange(int num)
         printInvalidInput();
         return false;
     }
+    return true;
 }
